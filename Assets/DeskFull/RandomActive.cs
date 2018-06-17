@@ -20,7 +20,6 @@ public class RandomActive : MonoBehaviour {
 
 	public void activeScreen()
 	{
-		Debug.Log("activeScreenactiveScreenactiveScreen");
 		MeshRenderer mr = gameObject.GetComponent<MeshRenderer> ();
 		mr.enabled = enabled;
 		if (enabled) {

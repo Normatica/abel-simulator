@@ -16,6 +16,7 @@ public class GameRandom : MonoBehaviour {
 	void Start () {
 		if (activeScreens == null) {
 			activeScreens = GameObject.FindGameObjectsWithTag ("active_screen");
+			currentActiveScreen = activeScreens[0];
 			shuffleAciveScreens();
 		}
 	}
@@ -30,21 +31,17 @@ public class GameRandom : MonoBehaviour {
 	}
 
 	IEnumerator ActiveScreenRandomly(){
-		Debug.Log("ActiveScreenRandomly");
-		Debug.Log(inCoRoutine);
 		inCoRoutine = true;
-		Debug.Log(inCoRoutine);
 		// Take on object random
-		int newRandomActiveScreenIdx = Random.Range (0, activeScreens.Length);
+		int newRandomActiveScreenIdx = Random.Range (0, activeScreens.Length - 1);
 		while (randomActiveScreenIdx == newRandomActiveScreenIdx) {
-			newRandomActiveScreenIdx = Random.Range (0, activeScreens.Length);
+			newRandomActiveScreenIdx = Random.Range (0, activeScreens.Length - 1);
 		}
 		randomActiveScreenIdx = newRandomActiveScreenIdx;
-		Debug.Log("currentActiveScreen choose: ");
-		Debug.Log(randomActiveScreenIdx);
 		currentActiveScreen = activeScreens[randomActiveScreenIdx];
-		Debug.Log("activeScreen call ");
 		randomActiveScript = currentActiveScreen.GetComponent<RandomActive>();
+		Debug.Log("randomActiveScript");
+		Debug.Log(randomActiveScript);
 		randomActiveScript.enabled = true;
 		randomActiveScript.activeScreen();
 		int randomTime = Random.Range (0, 10);
@@ -76,9 +73,6 @@ public class GameRandom : MonoBehaviour {
 		}
 		randomActiveScreenIdx = Random.Range (0, activeScreens.Length);
 		currentActiveScreen = activeScreens[randomActiveScreenIdx];
-		Debug.Log("currentActiveScreen choose: ");
-		Debug.Log(randomActiveScreenIdx);
-
 	}
 
 }
