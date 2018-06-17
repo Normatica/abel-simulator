@@ -27,4 +27,12 @@ public class RandomActive : MonoBehaviour {
 			screenSound.Play();
 		}
 	}
+
+	public void onClickScreen()
+	{
+		ScoreManager.score += 1;
+		MeshRenderer mr = gameObject.GetComponent<MeshRenderer> ();
+		enabled = false;
+		mr.enabled = enabled;
+	}
 }

@@ -62,10 +62,21 @@
             GUI.Label( new Rect( 10, y, 300, y + h ), "Holaaaa" );
         }
 
-        void OnCollisionEnter(Collision collision)
+        void OnCollisionStay(Collision collision)
         {
-            if(collision.gameObject.name != "NavFloor" && collision.gameObject.name != "Floor")
-                Debug.Log("LOlolololooolololoooo: " + collision.gameObject);
+			if (collision.gameObject.name == "ArmChair_off") {
+				if (Input.GetKeyDown ("space")) {
+					int idx = collision.gameObject.transform.GetSiblingIndex ();
+					GameObject s = collision.gameObject.transform.parent.GetChild (idx + 1).gameObject;
+					var active_screen = s.transform.Find ("active_screen").gameObject;
+					var blue_screen = s.transform.Find ("blue_screen").gameObject;
+					Debug.Log (active_screen);
+					if (active_screen.GetComponent<RandomActive>().enabled) {
+						active_screen.GetComponent<RandomActive> ().onClickScreen();
+						blue_screen.GetComponent<OnLockComputer>().onLockScreen();
+					}
+				}
+			}
         }
     }
 

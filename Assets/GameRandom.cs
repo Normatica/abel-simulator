@@ -16,8 +16,8 @@ public class GameRandom : MonoBehaviour {
 	void Start () {
 		if (activeScreens == null) {
 			activeScreens = GameObject.FindGameObjectsWithTag ("active_screen");
-			currentActiveScreen = activeScreens[0];
-			shuffleAciveScreens();
+			currentActiveScreen = activeScreens[1];
+			randomActiveScript = currentActiveScreen.GetComponent<RandomActive>();
 		}
 	}
 	
@@ -26,22 +26,18 @@ public class GameRandom : MonoBehaviour {
 		if(!inCoRoutineEmployee)
 			StartCoroutine(SpawnEmployee());
 
-		if(!inCoRoutine && !currentActiveScreen.GetComponent<RandomActive>().enabled)
+		if(!inCoRoutine)
 			StartCoroutine(ActiveScreenRandomly());
 	}
 
 	IEnumerator ActiveScreenRandomly(){
 		inCoRoutine = true;
 		// Take on object random
-		int newRandomActiveScreenIdx = Random.Range (0, activeScreens.Length - 1);
-		while (randomActiveScreenIdx == newRandomActiveScreenIdx) {
-			newRandomActiveScreenIdx = Random.Range (0, activeScreens.Length - 1);
-		}
-		randomActiveScreenIdx = newRandomActiveScreenIdx;
+		randomActiveScreenIdx = Random.Range (1, activeScreens.Length - 1);
 		currentActiveScreen = activeScreens[randomActiveScreenIdx];
 		randomActiveScript = currentActiveScreen.GetComponent<RandomActive>();
-		//Debug.Log("randomActiveScript");
-		//Debug.Log(randomActiveScript);
+		Debug.Log("randomActiveScreenIdx");
+		Debug.Log(randomActiveScreenIdx);
 		randomActiveScript.enabled = true;
 		randomActiveScript.activeScreen();
 		int randomTime = Random.Range (0, 10);
@@ -61,18 +57,6 @@ public class GameRandom : MonoBehaviour {
 		int randomTime = Random.Range (15, 30);
 		yield return new WaitForSeconds(5);
 		inCoRoutineEmployee = false;
-	}
-
-	void shuffleAciveScreens()
-	{
-		for (int i = 0; i < activeScreens.Length; i++) {
-			GameObject tmp = activeScreens[i];
-			int r = Random.Range (0, activeScreens.Length);
-			activeScreens[i] = activeScreens[r];
-			activeScreens[r] = tmp;
-		}
-		randomActiveScreenIdx = Random.Range (0, activeScreens.Length);
-		currentActiveScreen = activeScreens[randomActiveScreenIdx];
 	}
 
 }
