@@ -61,6 +61,12 @@
 
             GUI.Label( new Rect( 10, y, 300, y + h ), "Holaaaa" );
         }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            if(collision.gameObject.name != "NavFloor" && collision.gameObject.name != "Floor")
+                Debug.Log("LOlolololooolololoooo: " + collision.gameObject);
+        }
     }
 
 }

@@ -40,8 +40,8 @@ public class GameRandom : MonoBehaviour {
 		randomActiveScreenIdx = newRandomActiveScreenIdx;
 		currentActiveScreen = activeScreens[randomActiveScreenIdx];
 		randomActiveScript = currentActiveScreen.GetComponent<RandomActive>();
-		Debug.Log("randomActiveScript");
-		Debug.Log(randomActiveScript);
+		//Debug.Log("randomActiveScript");
+		//Debug.Log(randomActiveScript);
 		randomActiveScript.enabled = true;
 		randomActiveScript.activeScreen();
 		int randomTime = Random.Range (0, 10);
