@@ -65,7 +65,7 @@
         void OnCollisionStay(Collision collision)
         {
 			if (collision.gameObject.name == "ArmChair_off") {
-				if (Input.GetKeyDown ("space")) {
+				if (Input.GetKeyDown ("space") || Input.GetKeyDown("joystick button 1")) {
 					int idx = collision.gameObject.transform.GetSiblingIndex ();
 					GameObject s = collision.gameObject.transform.parent.GetChild (idx + 1).gameObject;
 					var active_screen = s.transform.Find ("active_screen").gameObject;
