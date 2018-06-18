@@ -59,5 +59,6 @@ public class Countdown : MonoBehaviour {
     {
     	HUDCanvas.enabled = true;
     	text.text = "Game Over!";
+		Application.LoadLevel(Application.loadedLevel);
     }
 }
