@@ -18,14 +18,18 @@ public class RandomActive : MonoBehaviour {
 	void Update () {
 	}
 
-	public void activeScreen()
+	public IEnumerator screenAction(int randomTime)
 	{
 		MeshRenderer mr = gameObject.GetComponent<MeshRenderer> ();
+		enabled = !enabled;
 		mr.enabled = enabled;
 		if (enabled) {
 			screenSound = GetComponent<AudioSource>();
 			screenSound.Play();
 		}
+		yield return new WaitForSeconds(randomTime);
+		enabled = !enabled;
+		mr.enabled = enabled;
 	}
 
 	public void onClickScreen()
