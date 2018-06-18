@@ -12,8 +12,16 @@ public class GameRandom : MonoBehaviour {
 	private int randomActiveScreenIdx;
 	bool inCoRoutine;
 	bool inCoRoutineEmployee;
+
+	private GameObject configGO;
+	private DoConfig config;
+
 	// Use this for initialization
 	void Start () {
+		// Init Config
+		configGO = GameObject.Find ("Config").gameObject;
+		config = configGO.GetComponent<DoConfig>();
+
 		if (activeScreens == null) {
 			activeScreens = GameObject.FindGameObjectsWithTag ("active_screen");
 			currentActiveScreen = activeScreens[1];
@@ -36,11 +44,9 @@ public class GameRandom : MonoBehaviour {
 		randomActiveScreenIdx = Random.Range (1, activeScreens.Length - 1);
 		currentActiveScreen = activeScreens[randomActiveScreenIdx];
 		randomActiveScript = currentActiveScreen.GetComponent<RandomActive>();
-		Debug.Log("randomActiveScreenIdx");
-		Debug.Log(randomActiveScreenIdx);
 		randomActiveScript.enabled = true;
 		randomActiveScript.activeScreen();
-		int randomTime = Random.Range (0, 10);
+		int randomTime = Random.Range (config.activeScreenRangeMin, config.activeScreenRangeMax);
 		yield return new WaitForSeconds(randomTime);
 		randomActiveScript.enabled = false;
 		randomActiveScript.activeScreen();
@@ -49,13 +55,13 @@ public class GameRandom : MonoBehaviour {
 
 	IEnumerator SpawnEmployee(){
 		inCoRoutineEmployee = true;
-		int posX = Random.Range (-10, 10);
-		int posZ = Random.Range (-10, 10);
+		float posX = Random.Range (config.spawnEmployeePosXRangeMin, config.spawnEmployeePosXRangeMax);
+		float posZ = Random.Range (config.spawnEmployeePosZRangeMin, config.spawnEmployeePosZRangeMin);
 		Vector3 position = new Vector3(posX,0,posZ);
 		Quaternion rotation = new Quaternion(1,1,1,1);
 		GameObject obj = Instantiate(employee, position, rotation) as GameObject;
-		int randomTime = Random.Range (15, 30);
-		yield return new WaitForSeconds(5);
+		int randomTime = Random.Range (config.spawnEmployeeRangeMin, config.spawnEmployeeRangeMax);
+		yield return new WaitForSeconds(config.spawnEmployeeTimeBetween);
 		inCoRoutineEmployee = false;
 	}
 
