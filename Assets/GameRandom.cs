@@ -38,7 +38,7 @@ public class GameRandom : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {		
 		if(!inCoRoutineEmployee)
 			StartCoroutine(SpawnEmployee());
 
@@ -51,7 +51,7 @@ public class GameRandom : MonoBehaviour {
 		inCoRoutine = true;
 
 		// Take a random screen
-		randomActiveScreenIdx = Random.Range (1, activeScreens.Length - 1);
+		randomActiveScreenIdx = Random.Range (0, activeScreens.Length - 1);
 		currentActiveScreen = activeScreens[randomActiveScreenIdx];
 		randomActiveScript = currentActiveScreen.GetComponent<RandomActive>();
 
@@ -79,5 +79,4 @@ public class GameRandom : MonoBehaviour {
 		yield return new WaitForSeconds(config.spawnEmployeeTimeBetween);
 		inCoRoutineEmployee = false;
 	}
-
 }

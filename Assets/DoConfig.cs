@@ -18,6 +18,12 @@ public class DoConfig : MonoBehaviour {
 	public int spawnEmployeeRangeMin = 15;
 	public int spawnEmployeeRangeMax = 30;
 
+	public AudioSource[] employeeRandomAudioSources;
+
+	public AudioSource[] playerRandomAudioSources;
+	public int playerRandomAudioSourceRangeMin = 0;
+	public int playerRandomAudioSourceRangeMax = 10;
+
 	// Use this for initialization
 	void Start () {
 		

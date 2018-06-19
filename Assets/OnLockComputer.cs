@@ -3,10 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OnLockComputer : MonoBehaviour {
-	private AudioSource helenaAaah;
+	
+	// All employee on the game
+	private GameObject[] employees;
+
+	private AudioSource[] audioSources;
+	private RandomEmployeeSound randomEmployeeSoundScript;
+
+	// Config variables
+	private GameObject configGO;
+	private DoConfig config;
+
 	// Use this for initialization
 	void Start () {
-		AudioSource helenaAaah = GetComponent<AudioSource>();
+		// Init Config
+		configGO = GameObject.Find ("Config").gameObject;
+		config = configGO.GetComponent<DoConfig>();
+
+		// Init random player sound
+		audioSources = config.employeeRandomAudioSources;
+
+		// Retrieve screens
+		if (employees == null) {
+			employees = GameObject.FindGameObjectsWithTag ("employee");
+		}
 	}
 
 	// Update is called once per frame
@@ -15,7 +35,9 @@ public class OnLockComputer : MonoBehaviour {
 
 	public void onLockScreen()
 	{
-		helenaAaah = GetComponent<AudioSource>();
-		helenaAaah.Play();
+		GameObject employeeRandom = employees[Random.Range (0, employees.Length - 1)];
+		randomEmployeeSoundScript = employeeRandom.GetComponent<RandomEmployeeSound>();
+		AudioSource employeeRandomAudioSource = audioSources[Random.Range (1, audioSources.Length - 1)];
+		randomEmployeeSoundScript.RandomSoundness(employeeRandomAudioSource);
 	}
 }
