@@ -77,6 +77,10 @@
 					}
 				}
 			}
+
+			if (collision.gameObject.tag == "Wall") {
+				playerRigidbody.velocity = Vector3.zero;
+			}
         }
     }
 
