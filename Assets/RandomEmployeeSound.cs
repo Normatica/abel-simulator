@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomEmployeeSound : MonoBehaviour {
-	
+
+	private AudioSource employeeSound;
 	// Use this for initialization
 	void Start () {
-		
+		employeeSound = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -16,6 +17,7 @@ public class RandomEmployeeSound : MonoBehaviour {
 
 	// Update is called once per frame
 	public void RandomSoundness (AudioSource randomSound) {
-		randomSound.Play();
+		employeeSound = randomSound;
+		employeeSound.Play();
 	}
 }
