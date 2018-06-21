@@ -13,6 +13,7 @@ public class RandomEmployeeSound : MonoBehaviour {
 	private DoConfig config;
 
 	private bool inCoRoutine;
+	private bool justSpwan;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +24,8 @@ public class RandomEmployeeSound : MonoBehaviour {
 		// Init random employee sound
 		employeeBackgroundSounds = config.employeeBackgroundRandomAudioSources;
 		employeeSound = GetComponent<AudioSource>();
+
+		justSpwan = true;
 	}
 	
 	// Update is called once per frame
@@ -40,11 +43,17 @@ public class RandomEmployeeSound : MonoBehaviour {
 	IEnumerator RandomBackgroundSoundness()
 	{
 		inCoRoutine = true;
-		randomSound = employeeBackgroundSounds[Random.Range(0, employeeBackgroundSounds.Length - 1)];
-		randomSound.Play();
+
+		if (!justSpwan) {
+			randomSound = employeeBackgroundSounds [Random.Range (0, employeeBackgroundSounds.Length - 1)];
+			randomSound.Play ();
+		} else {
+			justSpwan = false;
+		}
 
 		// Wait until the next to employee to spawn
 		int nextSoundTime = Random.Range (config.employeeBackgroundRandomAudioSourceRangeMin, config.employeeBackgroundRandomAudioSourceRangeMax);
+		Debug.Log (nextSoundTime);
 		yield return new WaitForSeconds(nextSoundTime);
 
 		inCoRoutine = false;
