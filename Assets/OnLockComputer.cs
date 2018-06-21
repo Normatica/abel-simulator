@@ -35,9 +35,12 @@ public class OnLockComputer : MonoBehaviour {
 
 	public void onLockScreen()
 	{
-		GameObject employeeRandom = employees[Random.Range (0, employees.Length - 1)];
-		randomEmployeeSoundScript = employeeRandom.GetComponent<RandomEmployeeSound>();
-		AudioSource employeeRandomAudioSource = audioSources[Random.Range (1, audioSources.Length - 1)];
-		randomEmployeeSoundScript.RandomSoundness(employeeRandomAudioSource);
+		// No sound, no cookie :p
+		if (audioSources.Length != 0) {
+			GameObject employeeRandom = employees [Random.Range (0, employees.Length - 1)];
+			randomEmployeeSoundScript = employeeRandom.GetComponent<RandomEmployeeSound> ();
+			AudioSource employeeRandomAudioSource = audioSources [Random.Range (1, audioSources.Length - 1)];
+			randomEmployeeSoundScript.RandomSoundness (employeeRandomAudioSource);
+		}
 	}
 }

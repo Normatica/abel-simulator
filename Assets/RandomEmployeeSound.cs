@@ -23,6 +23,12 @@ public class RandomEmployeeSound : MonoBehaviour {
 
 		// Init random employee sound
 		employeeBackgroundSounds = config.employeeBackgroundRandomAudioSources;
+
+		// No sound, no cookie :p
+		if (employeeBackgroundSounds.Length == 0) {
+			inCoRoutine = true;
+		}
+
 		employeeSound = GetComponent<AudioSource>();
 
 		justSpwan = true;

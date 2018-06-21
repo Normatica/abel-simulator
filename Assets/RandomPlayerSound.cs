@@ -21,6 +21,11 @@ public class RandomPlayerSound : MonoBehaviour {
 
 		// Init random player sound
 		audioSources = config.playerRandomAudioSources;
+
+		// No sound, no cookie :p
+		if (audioSources.Length == 0) {
+			inCoRoutine = true;
+		}
 	}
 
 	// Update is called once per frame
