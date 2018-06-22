@@ -64,4 +64,10 @@ public class RandomEmployeeSound : MonoBehaviour {
 
 		inCoRoutine = false;
 	}
+
+	public void WokSoundness()
+	{
+		AudioSource wokSound = GameObject.Find ("Wok").GetComponent<AudioSource> ();
+		wokSound.Play ();
+	}
 }
