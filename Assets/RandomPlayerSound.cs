@@ -32,6 +32,12 @@ public class RandomPlayerSound : MonoBehaviour {
 	void Update () {
 		if(!inCoRoutine)
 			StartCoroutine(RandomSoundness());
+
+		if (Input.GetKeyDown ("x")) {
+			inCoRoutine = true;
+			randomSound = GameObject.Find ("Wok").GetComponent<AudioSource> ();
+			randomSound.Play ();
+		}
 	}
 
 	IEnumerator RandomSoundness()

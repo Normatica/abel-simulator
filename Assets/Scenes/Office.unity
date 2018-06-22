@@ -1313,8 +1313,7 @@ MonoBehaviour:
   - {fileID: 288774281}
   employeeBackgroundRandomAudioSourceRangeMin: 107
   employeeBackgroundRandomAudioSourceRangeMax: 200
-  playerRandomAudioSources:
-  - {fileID: 2042024573}
+  playerRandomAudioSources: []
   playerRandomAudioSourceRangeMin: 100
   playerRandomAudioSourceRangeMax: 200
 --- !u!4 &362289764
@@ -4936,7 +4935,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1fd21d434e071e34dbaeffbf5c4e8c2a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

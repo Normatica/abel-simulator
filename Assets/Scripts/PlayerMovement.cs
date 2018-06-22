@@ -53,15 +53,6 @@
             playerRigidbody.position -= new Vector3 ((movement.x * translationHorizontal), 0,(movement.z * translationHorizontal) );
         }
 
-
-        void OnGUI()
-        {
-            const float h = 22.0f;
-            var y = 10.0f;
-
-            GUI.Label( new Rect( 10, y, 300, y + h ), "Holaaaa" );
-        }
-
         void OnCollisionStay(Collision collision)
         {
 			if (collision.gameObject.name == "ArmChair_off") {
