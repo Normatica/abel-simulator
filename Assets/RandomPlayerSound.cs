@@ -12,7 +12,10 @@ public class RandomPlayerSound : MonoBehaviour {
 	private DoConfig config;
 
 	private bool inCoRoutine;
+	private bool inCoRoutineWok;
+	private GameObject[] employees;
 	private GameObject employee;
+	private int randomNbEmployee;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +30,7 @@ public class RandomPlayerSound : MonoBehaviour {
 		if (audioSources.Length == 0) {
 			inCoRoutine = true;
 		}
+		inCoRoutineWok = true;
 	}
 
 	// Update is called once per frame
@@ -35,30 +39,30 @@ public class RandomPlayerSound : MonoBehaviour {
 			StartCoroutine(RandomSoundness());
 
 		if (Input.GetKeyDown ("x")) {
-			inCoRoutine = true;
+			inCoRoutineWok = false;
 			randomSound = GameObject.Find ("Wok").GetComponent<AudioSource> ();
 			randomSound.Play ();
 
 			// Take a random number of employee and play the Wok
-			GameObject[] employees = GameObject.FindGameObjectsWithTag ("employee");
-			int randomNbEmployee = Random.Range (0, employees.Length);
-			Debug.Log ("randomNbEmployee");
-			Debug.Log (randomNbEmployee);
-			for(int i = 0; i < randomNbEmployee;i++){
-				float randomWokLaunch = Random.Range (0, 2);
-				employee = employees[i];
-				Debug.Log ("WokEmployeeSoundness");
-				Debug.Log (randomWokLaunch);
-				Invoke("WokEmployeeSoundness", randomWokLaunch);
-			}
+			employees = GameObject.FindGameObjectsWithTag ("employee");
+			randomNbEmployee = Random.Range (0, employees.Length);
 		}
+
+		if(!inCoRoutineWok && randomNbEmployee > 0)
+			StartCoroutine(WokEmployeeSoundness());
 	}
 
-	public void WokEmployeeSoundness()
+	IEnumerator WokEmployeeSoundness()
 	{
-		Debug.Log ("WokEmployeeSoundness call");
+		inCoRoutineWok = true;
+		int randomIndxEmployee = Random.Range (0, employees.Length);
+		employee = employees[randomIndxEmployee];		
 		RandomEmployeeSound randomEmployeeSound = employee.GetComponent<RandomEmployeeSound> ();
 		randomEmployeeSound.WokSoundness ();
+		float nextSoundTime = Random.Range (config.employeeWokAudioSourceRangeMin, config.employeeWokAudioSourceRangeMax);
+		yield return new WaitForSeconds(nextSoundTime);
+		inCoRoutineWok = false;
+		randomNbEmployee--;
 	}
 
 	IEnumerator RandomSoundness()

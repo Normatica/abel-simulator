@@ -42,7 +42,7 @@ public class RandomEmployeeSound : MonoBehaviour {
 
 	// Update is called once per frame
 	public void RandomSoundness (AudioSource randomSound) {
-		employeeSound = randomSound;
+		employeeSound.clip = randomSound.clip;
 		employeeSound.Play();
 	}
 
@@ -67,7 +67,7 @@ public class RandomEmployeeSound : MonoBehaviour {
 
 	public void WokSoundness()
 	{
-		AudioSource wokSound = GameObject.Find ("Wok").GetComponent<AudioSource> ();
-		wokSound.Play ();
+		employeeSound.clip = GameObject.Find ("Wok").GetComponent<AudioSource> ().clip;
+		employeeSound.Play ();
 	}
 }
