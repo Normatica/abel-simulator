@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1065,7 +1065,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 3.2651796
+  MaxDistance: 3.5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1312,6 +1312,8 @@ MonoBehaviour:
   employeeBackgroundRandomAudioSources: []
   employeeBackgroundRandomAudioSourceRangeMin: 107
   employeeBackgroundRandomAudioSourceRangeMax: 200
+  employeeWokAudioSourceRangeMin: 1
+  employeeWokAudioSourceRangeMax: 2.5
   playerRandomAudioSources: []
   playerRandomAudioSourceRangeMin: 100
   playerRandomAudioSourceRangeMax: 200
@@ -3638,7 +3640,7 @@ AudioSource:
   Priority: 67
   DopplerLevel: 1
   MinDistance: 0.5
-  MaxDistance: 7.76543
+  MaxDistance: 8
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -3947,8 +3949,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.7726748
-  MaxDistance: 2.3407083
+  MinDistance: 1
+  MaxDistance: 4.5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -4945,7 +4947,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 4
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
