@@ -6,6 +6,7 @@ TagManager:
   tags:
   - active_screen
   - Wall
+  - employee
   layers:
   - Default
   - TransparentFX
