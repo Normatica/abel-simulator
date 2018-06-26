@@ -24,7 +24,7 @@ public class DoConfig : MonoBehaviour {
 	public int employeeBackgroundRandomAudioSourceRangeMax = 20;
 	public float employeeWokAudioSourceRangeMin = 0.5f;
 	public float employeeWokAudioSourceRangeMax = 2.5f;
-
+	public string[] employeeRandomNames;
 
 	public AudioSource[] playerRandomAudioSources;
 	public int playerRandomAudioSourceRangeMin = 0;
