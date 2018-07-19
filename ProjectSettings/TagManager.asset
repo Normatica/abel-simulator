@@ -7,6 +7,7 @@ TagManager:
   - active_screen
   - Wall
   - employee
+  - date
   layers:
   - Default
   - TransparentFX

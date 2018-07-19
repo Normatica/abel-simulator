@@ -50,8 +50,8 @@ public class GameRandom : MonoBehaviour {
 	IEnumerator ActiveScreenRandomly(){
 		inCoRoutine = true;
 
-		// Take a random screen
-		randomActiveScreenIdx = Random.Range (0, activeScreens.Length - 1);
+        // Take a random screen
+        randomActiveScreenIdx = 0; // Random.Range (0, activeScreens.Length - 1);
 		currentActiveScreen = activeScreens[randomActiveScreenIdx];
 		randomActiveScript = currentActiveScreen.GetComponent<RandomActive>();
 
