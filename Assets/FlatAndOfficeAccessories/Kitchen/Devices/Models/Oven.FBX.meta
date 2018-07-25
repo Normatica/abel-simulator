@@ -1,0 +1,119 @@
+fileFormatVersion: 2
+guid: a9d623aed4fef6d4b8c66e040ba3efbe
+timeCreated: 1442659362
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Oven_door
+    100004: Oven_knob_1
+    100006: Oven_knob_2
+    100008: Oven_knob_3
+    100010: oven_knob_4
+    100012: oven_knob_5
+    100014: oven_knob_6
+    100016: oven_knob_7
+    100018: oven_knob_8
+    400000: //RootNode
+    400002: Oven_door
+    400004: Oven_knob_1
+    400006: Oven_knob_2
+    400008: Oven_knob_3
+    400010: oven_knob_4
+    400012: oven_knob_5
+    400014: oven_knob_6
+    400016: oven_knob_7
+    400018: oven_knob_8
+    2300000: //RootNode
+    2300002: Oven_door
+    2300004: Oven_knob_1
+    2300006: Oven_knob_2
+    2300008: Oven_knob_3
+    2300010: oven_knob_4
+    2300012: oven_knob_5
+    2300014: oven_knob_6
+    2300016: oven_knob_7
+    2300018: oven_knob_8
+    3300000: //RootNode
+    3300002: Oven_door
+    3300004: Oven_knob_1
+    3300006: Oven_knob_2
+    3300008: Oven_knob_3
+    3300010: oven_knob_4
+    3300012: oven_knob_5
+    3300014: oven_knob_6
+    3300016: oven_knob_7
+    3300018: oven_knob_8
+    4300000: Oven_body
+    4300002: Oven_door
+    4300004: Oven_knob_1
+    4300006: Oven_knob_2
+    4300008: Oven_knob_3
+    4300010: oven_knob_5
+    4300012: oven_knob_4
+    4300014: oven_knob_6
+    4300016: oven_knob_7
+    4300018: oven_knob_8
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
